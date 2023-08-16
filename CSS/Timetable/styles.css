@@ -11,6 +11,7 @@ h1 {
     color: whitesmoke;
     border: 3px solid black;
     background-color: #3f87a6;
+    text-shadow: 3px 3px 3px lightgray;
 }
 
 table {
@@ -28,6 +29,7 @@ th {
     background-color: #3f87a6;
     color: #fff;
     border: 1px solid black;
+    text-shadow: 2px 2px 3px lightblue;
 }
 
 tbody {
