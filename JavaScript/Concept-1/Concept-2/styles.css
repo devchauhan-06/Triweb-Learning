@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background-color: rgb(254, 206, 233);
+}
+
+h1 {
+    text-align: center;
+    background-color: rgb(1, 28, 39);
+    color: white;
+    padding: 10px;
+    margin-bottom: 30px;
+    font-family: cursive;
+}
+
+
+input {
+    height: 30px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.calc {
+    margin-top: 80px;
+    margin-left: 500px;
+    height: 400px;
+    width: 550px;
+    border: 3px solid rgb(1, 28, 39);
+    padding: 20px;
+    border-radius: 30px;
+    background-color: #545677;
+}
+
+
+#num1 {
+    margin-right: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+
+.operations {
+    margin-top: 30px;
+
+
+}
+
+button {
+    height: 50px;
+    width: 80px;
+    border-radius: 10px;
+    background-color: #fecee9;
+    color: rgb(1, 28, 39);
+    font-weight: bolder;
+}
+
+#add {
+    margin-left: 80px;
+    margin-right: 200px;
+    margin-bottom: 40px;
+}
+
+#mul {
+    margin-left: 80px;
+    margin-right: 200px;
+}
+
+#ans {
+    height: 30px;
+    width: 510px;
+    background-color: white;
+    margin-top: 50px;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: bolder;
+}
