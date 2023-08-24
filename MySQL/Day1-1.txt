@@ -1,0 +1,11 @@
+// Creation , updation & deletion on a Table 
+
+CREATE TABLE `workshop`.`users` (`id` INT(11) NOT NULL AUTO_INCREMENT , `name` VARCHAR(255) NOT NULL , `email` VARCHAR(255) NOT NULL , `password` VARCHAR(255) NOT NULL , `remark` VARCHAR(255), PRIMARY KEY (`id`));
+
+INSERT INTO `users`(`name`, `email`, `password`, `remark`) VALUES ('Dev','devchauhan@email.com','abcd','intern');
+
+SELECT * FROM `users`;
+
+UPDATE `users` SET `password`='123' WHERE `email`='devchauhan@email.com';
+
+DELETE FROM `users` WHERE `email`='devchauhan@email.com';

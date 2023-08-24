@@ -1,0 +1,66 @@
+#CRUD
+
+
+
+#C - Create
+
+INSERT INTO teacher (mobile,teacher_name) VALUES('1111','t1')
+
+OUTPUT - 1 row inserted.
+Inserted row id: 1
+
+
+
+#R - Retrieve
+
+SELECT * from teacher;
+
+
+
+#U - UPDATE
+
+UPDATE teacher SET mobile = '2222'
+
+
+
+#D - DELETE
+
+DELETE from teacher
+
+
+
+
+
+INSERT into classes(class_name,teacher_id) VALUES('Class 1' ,1)
+
+-> DELETE cannot delete AUTO_INCREMENT
+TRUNCATE TABLE classes -> It resets the table , but it Cannot truncate a table referenced in a foreign key constraint (`workshop`.`students`, CONSTRAINT `students_ibfk_1` FOREIGN KEY (`class_id`) REFERENCES `workshop`.`classes` (`id`))
+
+insert into students(id,student_name,class_id,mobile) VALUES(1,"Dev",2,'9917')
+insert into students(id,student_name,class_id,mobile) VALUES(2,"aryan",3,'9914')
+
+
+SELECT * from students WHERE class_id=3
+SELECT * FROM students WHERE class_id = 2 and mobile=9917
+SELECT * FROM students WHERE class_id = 2 OR class_id = 3
+SELECT * FROM students WHERE class_id IN (2,3)
+SELECT student_name as NameOfStudent,mobile as MobileNumber FROM `students` WHERE id = 1
+
+#Creating object of table 
+
+select st.student_name 
+FROM students st 
+where st.id = 2
+
+
+#INNER JOIN
+
+select st.student_name,cl.class_name 
+FROM students st 
+INNER JOIN classes cl ON st.class_id = cl.id 
+where st.id = 2
+
+
+select st.student_name,cl.class_name 
+FROM students st 
+INNER JOIN classes cl ON st.class_id = cl.id 
