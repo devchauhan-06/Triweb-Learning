@@ -1,0 +1,40 @@
+# MIN AND MAX
+
+select max(salary) from teachers
+select min(salary) from teachers
+
+# COUNT
+select count(id) as NumberofTeachers from teachers
+
+# salary
+select avg(salary) as AVGSAL from teachers
+
+#SUM 
+select SUM(salary) as TotalSalary from teachers
+
+#LIKE
+select * from students where student_name like "Prachi Meht_"  -> if one alphabet is missing/mistype
+select * from students where student_name like "pra%" -> all students whose name start with pra
+select * from students where student_name like "pra%i"  -> strats with pra ends with i
+
+#IN
+select * form students where class_id IN (1,5,6) -> all students with class id 1,5,6
+ 
+#  NOT IN -> eg. Second highest salary 
+select max(salary) from teachers where salary not in (select max(salary) from teachers )
+
+- Third highest
+select max(salary) from teachers where salary not in (select max(salary) from teachers ) not in (select max(salary) from teachers where salary not in (select max(salary) from teachers ))
+
+# BETWEEN
+select * from teachers where salary between 5000 and 10000
+
+# JOINs
+
+select * 
+from classes cl
+left join teachers tr on cl.teacher_id = tr.id
+
+select cl.class_name , tr.teacher_name as class_teacher
+from classes cl
+left join teachers tr on cl.teacher_id = tr.id

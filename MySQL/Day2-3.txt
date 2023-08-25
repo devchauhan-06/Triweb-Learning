@@ -1,0 +1,31 @@
+#UNION -> Merge
+
+select teacher_name from teachers
+union 
+select student_name from students
+
+
+#Group
+select class_id , count(*) as NumberOFSTudents from students
+group by class_id
+
+#ORDER BY 
+select class_id , count(*) as NumberOFSTudents from students
+group by class_id
+order by numberOFSTudents desc
+
+#HAVING
+select class_id , count(*) as NumberOFSTudents from students
+group by class_id
+where NumerOfSTudents > 1
+--> This will give error therefore we use having
+
+select class_id , count(*) as NumberOFSTudents from students
+group by class_id
+having NumerOfSTudents > 1
+
+# insert into select
+
+insert into teachers_dup(id,teacher_name,salary,mobile)
+ select id,teacher_name,salary,mobile from teachers
+where id = 3

@@ -1,0 +1,85 @@
+#MySQL
+
+create database workshop2
+
+create TABLE teachers(
+id int(11) NOT null AUTO_INCREMENT PRIMARY KEY, 
+teacher_name varchar(255) NOT null,
+mobile varchar(100) NOT null , 
+salary int(30)
+)
+
+[Integer length Deprecated ]
+
+
+drop table teacher
+
+create TABLE teachers(
+id int  NOT null AUTO_INCREMENT PRIMARY KEY, 
+teacher_name varchar(255) NOT null,
+mobile varchar(100) NOT null , 
+salary int
+)
+
+CREATE TABLE classes(
+id int not null AUTO_INCREMENT,
+class_name varchar(100) not null,
+teacher_id int NOT null,
+PRIMARY KEY(id),
+FOREIGN KEY(teacher_id) REFERENCES teachers(id)   
+)
+
+CREATE TABLE students(
+id int not null AUTO_INCREMENT,
+student_name varchar(100) not null,
+mobile varchar(20) default 0,
+teacher_id int NOT null,
+class_id int not null,
+PRIMARY KEY(id),
+FOREIGN KEY(class_id) REFERENCES classes(id)   
+)
+
+
+insert into teachers (teacher_name,mobile,salary) values("Ajay","9918",5000)
+
+
+#Inserting multiple records
+insert into teachers (teacher_name,mobile,salary) values("Thakur","9999",5000) , ("Vijay","123",6000)
+
+#another way of Inserting
+insert into teachers values(4,"Ajaan","456",10000)
+
+insert into classes(class_name , teacher_id ) values("class 6" ,1)
+insert into classes(class_name , teacher_id ) values("Class 6" ,1),("Class 7" ,1),("Class 8" ,2),("Class 9" ,3),("Class 10" ,4)
+
+insert into classes(id,class_name,teacher_id) values(1,'Class 5',3)
+
+update classes set class_name = "Class 6-A" where id = 2
+update classes set class_name = "Class 6-B" where id = 3
+
+update classes set teacher_id ="2" where id=4
+
+
+
+update classes set class_name='Class 1' where id=1
+update classes set class_name='Class 2' where id=2
+.
+.
+.
+.
+update classes set class_name='Class 7' where id=7
+
+insert into students(student_name,mobile, class_id) values("Garv Rathi","7024",1),("Akriti Raj","9912",2),("Khushi Chandra","2345",2),("Prachi Mehta","6789",1),("Rana","6734",3),("Om Prakash","6786",4),("Shweta","3789",5),("Udbhav","6389",6),("Dev Chauahan","6396",7)
+-> teacher_id is set not null Therefore
+insert into students(student_name,mobile, class_id,teacher_id) values("Garv Rathi","7024",1,1),("Akriti Raj","9912",2,1),("Khushi Chandra","2345",2,1),("Prachi Mehta","6789",1,2),("Rana","6734",3,2),("Om Prakash","6786",4,3),("Shweta","3789",5,3),("Udbhav","6389",6,4),("Dev Chauahan","6396",7,4)
+
+select * from students where class_id=5
+select * from students where class_id=5 or class_id=4
+select * from students where mobile ='222' and class_id=4
+
+#Not Equal
+select * from students where id<>5 
+
+
+#ascending order
+select * from students where id<>5 order by class_id asc
