@@ -1,0 +1,48 @@
+db.createCollection('products',{validator : {
+     $jsonSchema:{
+        bsonType :'object',
+        required : ['title','pname','owner','comments'],
+        properties:{
+            title:{
+            bsonType :'string',
+            description:'Title must be string'
+            },
+            pname:{
+                bsonType :'string',
+                description:'pname must be string'
+                },
+            owner:{
+                bsonType :'objectId',
+                description:'id of customer'
+                },
+            comments:{
+                bsonType :'string',
+                description:'comment must be string'
+                }
+                 }
+                }
+            }
+        })
+
+
+        
+        
+#Inserting into products collection
+
+    db.products.insertOne({title:"Product 1",pname:"Apple",owner:ObjectId("64f1e4bb05d68f5511c4c5c3"), comments:"Good Product"})
+
+    ->ordered insert 
+    db.products.insertMany([{title:"Product 2",pname:"Microsoft",owner:ObjectId("64f1e7d805d68f5511c4c5c7"), comments:"Good Product as well"},{title:"Product 3",pname:"Oracle",owner:ObjectId("64f1e7d805d68f5511c4c5c7"), comments:"Good Product too"},{title:"Product 4",pname:"Ferrari",owner:ObjectId("64f1e4bb05d68f5511c4c5c3"), comments:"Good Product"}])
+    
+    ->unordered insert -- if one fails in between insertion wont stop
+    db.products.insertMany([{title:"Product 2",pname:"Microsoft",owner:ObjectId("64f1e7d805d68f5511c4c5c7"), comments:"Good Product as well"},{title:"Product 3",pname:"Oracle",owner:ObjectId("64f1e7d805d68f5511c4c5c7"), comments:"Good Product too"},{title:"Product 4",pname:"Ferrari",owner:ObjectId("64f1e4bb05d68f5511c4c5c3"), comments:"Good Product"},{ordered:false}])
+
+
+#in
+
+    db.books.find({price:{$in:[400,600]}})
+
+
+#notin
+
+    db.books.find({price:{$nin:[400,600]}})
