@@ -1,0 +1,20 @@
+
+#customer
+
+    db.customer.insertOne({cname:"Dev"})
+    db.customer.insertOne({cname:"Ujjwal"})
+
+
+#books
+
+    db.books.insertMany([{bname:"GOT",price:400},{bname:"Rich Dad Poor Dad",price:300},{bname:"Demon Slayer",price:500}])
+
+
+#Creating a link between two collections -> customer and books
+
+    db.customer.updateOne({_id: ObjectId("64f1e4bb05d68f5511c4c5c3")},{$set : {favBooks : [ ObjectId("64f1e5f105d68f5511c4c5c4"),ObjectId("64f1e5f105d68f5511c4c5c5")]}})
+    db.customer.updateOne({_id: ObjectId("64f1e7d805d68f5511c4c5c7")},{$set : {favBooks : [ ObjectId("64f1e5f105d68f5511c4c5c6")]}})
+
+    -> aggregate
+
+        db.customer.aggregate([{$lookup: {from: "books",localField : "favBooks" , foreignField : "_id",as: "FavouriteBookData"}}])
