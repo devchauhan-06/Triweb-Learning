@@ -1,0 +1,34 @@
+# First Connect to Shell using your connection string in your command line
+
+    show dbs  --> shows databases
+
+#Create
+
+    db.firstCollection.insert({name:"Dev",mobile:6396}) --> insert is deprecated
+
+    db.firstCollection.insertOne({name:"Ujjwal",mobile:7017})
+
+    db.firstCollection.insertMany([{name:"Pihu",email:"pihuMum@email.com"},{name:"Azhar",mobile:9879,location:"India"}])
+
+
+#Retrieve
+
+    db.firstCollection.find()  --> Will present you with every record of firstCollection
+
+    db.firstCollection.find({name:"Ujjwal"})
+
+
+
+#Update  -> Set
+
+    db.firstCollection.updateOne({name:"Ujjwal"},{$set:{mobile:666}})  --> Will update the first record & Leave the rest
+
+
+
+#Delete 
+
+    db.firstCollection.deleteOne({name:"Pihu"})   --> Will Delete the first record & Leave the rest
+
+
+ 
+ 
