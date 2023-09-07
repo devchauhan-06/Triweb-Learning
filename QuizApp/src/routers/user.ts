@@ -1,14 +1,10 @@
 // Redirect request to particular controller
 import express from 'express'
-import { registerUser, getUser, updateUser, loginUser } from '../controllers/user'
+import { getUser, updateUser } from '../controllers/user'
 
 const router = express.Router()
 
-// Post /user/
-router.post('/', registerUser);
-
-// Post /user/
-router.post('/login', loginUser);
+//User Should be authentic and authorized
 
 // Get /user/:userId
 router.get('/:userId', getUser);

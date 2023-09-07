@@ -1,7 +1,8 @@
 import express, { Request, Response } from 'express';
-import userRoute from './routers/user'
 import mongoose from 'mongoose';
-import { MongoClient, ServerApiVersion } from 'mongodb';
+
+import userRoute from './routers/user';
+import authRoute from './routers/auth';
 
 const app = express();
 
@@ -16,13 +17,14 @@ app.get('/', (req: Request, res: Response) => {
     res.send("HOME")
 })
 
-//Redirect /user to userController 
+//Redirect /user to userRoute
 
 app.use('/user', userRoute)
 
-// mongoose.connect(connectionString)
-//     .then((res) => app.listen(3006))
-//     .catch((err) => console.log(err))
+//Redirect /auth to authRoute
+
+app.use('/auth', authRoute)
+
 
 async function connectDb() {
     try {
