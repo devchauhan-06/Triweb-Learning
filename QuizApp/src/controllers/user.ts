@@ -2,6 +2,7 @@
 
 import { Request, Response, NextFunction } from "express";
 import User from "../models/user";
+import bcrypt from "bcryptjs"
 
 interface ReturnResponse {
     status: "success" | "error",
@@ -17,13 +18,7 @@ const registerUser = async (req: Request, res: Response) => {
 
         const email = req.body.email;
         const name = req.body.name;
-        const passwordFromRequest = req.body.password;
-
-        'use strict';
-
-        let data = 'stackabuse.com';
-        let buff = Buffer.from(passwordFromRequest);
-        let password = buff.toString('base64');
+        const password = bcrypt.hash(req.body.password, 12);
 
         const user = new User({ email, name, password })
         const result = await user.save();
