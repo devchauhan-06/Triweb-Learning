@@ -1,13 +1,18 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import mongoose from 'mongoose';
 
 import userRoute from './routers/user';
 import authRoute from './routers/auth';
+import ProjectError from "./helper/error";
 
 const app = express();
 
-// const uri = "mongodb+srv://devchauhan62003:<dev@62003>49.36.220.89/32:27017/workshopDB?retryWrites=true&w=majority"
-// const uri = "mongodb+srv://devchauhan62003:dev%4062003@mycluster.j2b0hws.mongodb.net/"
+interface ReturnResponse {
+    status: "success" | "error",
+    message: String,
+    data: {} | []
+}
+
 const connectionString = process.env.CONNECTION_STRING || "";
 
 app.use(express.json())
@@ -26,11 +31,37 @@ app.get('/', (req: Request, res: Response) => {
 
 //Redirect /user to userRoute
 
-app.use('/user', userRoute)
+app.use('/user', userRoute);
 
 //Redirect /auth to authRoute
 
-app.use('/auth', authRoute)
+app.use('/auth', authRoute);
+
+
+//Error Route
+
+app.use((err: ProjectError, req: Request, res: Response, next: NextFunction) => {
+
+    let message: String;
+    let statusCode: number;
+
+    if (!!err.statusCode && err.statusCode < 500) {
+        message = err.message;
+        statusCode = err.statusCode;
+    }
+    else {
+        message = "Something went wrong please try after sometime!";
+        statusCode = 500;
+    }
+
+    let resp: ReturnResponse = { status: "error", message, data: {} }
+
+    if (!!err.data) {
+        resp.data = err.data;
+    }
+    console.log(err.statusCode, err.message);
+    res.status(statusCode).send(resp);
+})
 
 
 async function connectDb() {
