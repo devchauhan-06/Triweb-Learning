@@ -31,7 +31,7 @@ router.delete('/:quizId', isAuthenticated, deleteQuiz);
 
 //Publish
 
-//PATCH
+//PATCH quiz/publish
 router.patch('/publish', isAuthenticated, publishQuiz);
 
 
