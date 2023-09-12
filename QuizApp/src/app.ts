@@ -4,7 +4,8 @@ import mongoose from 'mongoose';
 import userRoute from './routers/user';
 import authRoute from './routers/auth';
 import ProjectError from "./helper/error";
-import quizRoute from "./routers/quiz"
+import quizRoute from "./routers/quiz";
+import examRoute from "./routers/exam";
 
 const app = express();
 
@@ -42,6 +43,10 @@ app.use('/auth', authRoute);
 //Redirect /quiz 
 
 app.use('/quiz', quizRoute);
+
+//Redirect /exam
+
+app.use('/exam', examRoute);
 
 
 //Error Route
