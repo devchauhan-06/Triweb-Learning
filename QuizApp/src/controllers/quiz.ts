@@ -69,6 +69,12 @@ const updateQuiz = async (req: Request, res: Response, next: NextFunction) => {
             throw err;
         }
 
+        if (quiz.is_published) {
+            const err = new ProjectError("Cannot update Published Quiz");
+            err.statusCode = 405;
+            throw err;
+        }
+
         quiz.name = req.body.name;
         quiz.questions_list = req.body.questions_list;
         quiz.answer = req.body.answer;
@@ -99,6 +105,13 @@ const deleteQuiz = async (req: Request, res: Response, next: NextFunction) => {
             err.statusCode = 403;
             throw err;
         }
+
+        if (quiz.is_published) {
+            const err = new ProjectError("Cannot delete Published Quiz");
+            err.statusCode = 405;
+            throw err;
+        }
+
 
         await Quiz.deleteOne({ _id: quizId });
         const resp: ReturnResponse = { status: "success", message: "Quiz Deleted successfully", data: {} };
