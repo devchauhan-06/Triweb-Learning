@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 
 import Quiz from "../models/quiz";
 import ProjectError from "../helper/error";
-import Result from "../models/result";
+import Report from "../models/report";
 
 interface ReturnResponse {
     status: "success" | "error",
@@ -68,11 +68,11 @@ const submitExam = async (req: Request, res: Response, next: NextFunction) => {
             }
         }
 
-        const result = new Result({ userId, quizId, score, total });
+        const report = new Report({ userId, quizId, score, total });
 
-        const data = await result.save();
+        const data = await report.save();
 
-        const resp: ReturnResponse = { status: "success", message: "Quiz Submitted ", data: { total, score, resultId: data._id } };
+        const resp: ReturnResponse = { status: "success", message: "Quiz Submitted ", data: { total, score, reportId: data._id } };
         res.status(200).send(resp);
 
     }
