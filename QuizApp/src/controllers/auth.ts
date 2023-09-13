@@ -1,5 +1,5 @@
 
-import { Request, Response, NextFunction } from "express";
+import { RequestHandler } from "express";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken"
 import { validationResult } from "express-validator/src/validation-result";
@@ -13,8 +13,11 @@ interface ReturnResponse {
     data: {} | []
 }
 
+//In this File we are using RequestHandler in others we are using Request,Response,NextFunction
 
-const registerUser = async (req: Request, res: Response, next: NextFunction) => {
+
+// const registerUser = async (req: Request, res: Response, next: NextFunction) =>
+const registerUser: RequestHandler = async (req, res, next) => {
 
     let resp: ReturnResponse;
 
@@ -59,7 +62,7 @@ const registerUser = async (req: Request, res: Response, next: NextFunction) => 
 
 }
 
-const loginUser = async (req: Request, res: Response, next: NextFunction) => {
+const loginUser: RequestHandler = async (req, res, next) => {
     let resp: ReturnResponse;
     try {
         const email = req.body.email;
