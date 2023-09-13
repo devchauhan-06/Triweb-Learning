@@ -3,12 +3,7 @@ import { Request, Response, NextFunction } from "express";
 import Quiz from "../models/quiz";
 import ProjectError from "../helper/error";
 import Report from "../models/report";
-
-interface ReturnResponse {
-    status: "success" | "error",
-    message: String,
-    data: {} | []
-}
+import { ReturnResponse } from "../utils/interfaces";
 
 
 

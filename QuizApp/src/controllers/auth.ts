@@ -6,12 +6,9 @@ import { validationResult } from "express-validator/src/validation-result";
 
 import User from "../models/user";
 import ProjectError from "../helper/error";
+import { ReturnResponse } from "../utils/interfaces";
 
-interface ReturnResponse {
-    status: "success" | "error",
-    message: String,
-    data: {} | []
-}
+
 
 //In this File we are using RequestHandler in others we are using Request,Response,NextFunction
 

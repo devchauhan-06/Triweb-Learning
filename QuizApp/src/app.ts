@@ -7,14 +7,10 @@ import ProjectError from "./helper/error";
 import quizRoute from "./routers/quiz";
 import examRoute from "./routers/exam";
 import reportRoute from "./routers/report";
+import { ReturnResponse } from "./utils/interfaces";
 
 const app = express();
 
-interface ReturnResponse {
-    status: "success" | "error",
-    message: String,
-    data: {} | []
-}
 
 const connectionString = process.env.CONNECTION_STRING || "";
 
