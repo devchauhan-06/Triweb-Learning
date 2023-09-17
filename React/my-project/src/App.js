@@ -4,22 +4,21 @@ import Contact from "./pages/Contact";
 import Product from "./pages/Product";
 
 
-import MainMenu from "./components/layouts/MainMenu";
 
+import Layout from "./components/layouts/Layout";
 
 import {Routes,Route} from 'react-router-dom';
 
 function App() {
   return (
-    <div >
-      <MainMenu/>
+    <Layout>
       <Routes>
     <Route path="/" element={<Home/>}></Route> 
     <Route path="/about" element={<About/>}></Route> 
     <Route path="/contact" element={<Contact/>}></Route> 
     <Route path="/product" element={<Product/>}></Route> 
     </Routes>
-    </div>
+    </Layout>
   
   );
 }

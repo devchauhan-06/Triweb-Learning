@@ -1,10 +1,11 @@
 import React from 'react'
+import CustomWrapper from '../layouts/CustomWrapper'
 
 function ProductItem (props){
   return (
       <li key={props.item.id}> 
       
-        <div>
+        <CustomWrapper>
 
         <div>
             <img src={props.item.image} alt="Nothing" />
@@ -18,7 +19,7 @@ function ProductItem (props){
         <div>
             <button>Purchase</button>
         </div>
-        </div>
+        </CustomWrapper>
 
       </li>
   )
