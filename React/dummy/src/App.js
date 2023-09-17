@@ -15,7 +15,7 @@ function App() {
   }
 
   return (
-    <div className='modal'>
+    <div >
       <h1>Dummy</h1>
       {modalOpen?<FirstComponent owner="Dev" reason="For demo" closeModal={modalCloseHandler}/>:null}
       {modalOpen?<Backdrop />:null}
