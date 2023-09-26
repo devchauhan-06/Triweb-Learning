@@ -1,0 +1,6 @@
+{
+    "env": {
+        "CONNECTION_STRING": "mongodb+srv://devchauhan62003:dev%4062003@mycluster.j2b0hws.mongodb.net/MERNdb?retryWrites=true&w=majority",
+        "PORT": 3004
+    }
+}
