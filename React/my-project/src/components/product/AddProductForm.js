@@ -3,7 +3,7 @@ import { useRef } from 'react';  //hook
 import Style from './AddProductForm.module.css'
 import CustomWrapper from '../layouts/CustomWrapper'
 
-function AddProductForm() {
+function AddProductForm(props) {
 
     const product_name_ref = useRef();
     const image_ref = useRef();
@@ -25,8 +25,8 @@ function AddProductForm() {
             price,
             description
         }
+        props.addProductHandler(product)
 
-        console.log(product);
     }
 
     return (
