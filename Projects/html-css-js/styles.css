@@ -1,7 +1,7 @@
 .main_div {
     margin-top: 100px;
     margin-left: 450px;
-    background-color: #504099;
+    background-color: #dedde6;
     width: 600px;
     height: 500px;
     border: 3px solid black;
@@ -10,7 +10,7 @@
 }
 
 body {
-    background-color: #974EC3;
+    background-color: #d6cbcb;
 }
 
 .user_div {
@@ -47,7 +47,7 @@ body {
 }
 
 .btn_pro {
-    background-color: rgb(105, 94, 224);
+    background-color: rgb(188, 184, 234);
     color: black;
     border: 2px solid black;
     border-radius: 5px;
