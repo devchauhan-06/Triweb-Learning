@@ -1,0 +1,19 @@
+@font-face {
+    font-family: Raleway ;
+    src: url(../fonts/Raleway-Bold.ttf);
+}
+
+.logo{
+    font-weight: bolder;
+    margin-left: 2vh;
+    line-height: 5vh;
+    font-size: xx-large;
+    font-family: Raleway;
+}
+
+.nav_elements{
+ color: white;
+ margin-right: 8vw;
+ font-weight: bold;
+ font-family: Raleway;
+}
