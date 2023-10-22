@@ -51,6 +51,12 @@
 }
 
 
+/*Change header backgroun*/
+
+.scroll-header {
+    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
+}
+
 /* BREAKPOINTS */
 
 /* For medium devices */
@@ -79,10 +85,10 @@
     /* Show menu */
     .show-menu {
         bottom: 0;
-        transition:0.5s;
+        transition: 0.5s;
     }
 
-   
+
 
     .nav__list {
         display: grid;
