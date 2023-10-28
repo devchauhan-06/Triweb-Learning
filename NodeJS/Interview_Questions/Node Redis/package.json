@@ -1,0 +1,14 @@
+{
+  "name": "node_redis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dev Chauhan",
+  "license": "ISC",
+  "dependencies": {
+    "redis": "^4.6.10"
+  }
+}
